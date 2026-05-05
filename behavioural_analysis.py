@@ -64,10 +64,10 @@ std_score = np.std(scores)
 se_score = np.std(scores) / np.sqrt(len(scores))
 
 
-print(f"Number of folds: {len(scores)}")
-print(f"Mean balanced accuracy: {mean_score}")
-print(f"Std: {std_score}")
-print(f"SE: {se_score}")
+print(f"Number of folds: {len(scores):.3f}")
+print(f"Mean balanced accuracy: {mean_score:.3f}")
+print(f"Std: {std_score:.3f}")
+print(f"SE: {se_score:.3f}")
 
 
 #please extract the coefficients from the last fitted model (the one trained on the last fold) and print them out
@@ -78,4 +78,3 @@ for feature, coef in zip(features, coefficients):
     print(f"{feature}: {coef}")
 
 
-    
