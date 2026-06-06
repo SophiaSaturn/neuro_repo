@@ -1,0 +1,18 @@
+evoked_speed = epochs_speed.average()
+evoked_norm  = epochs_norm.average()
+ 
+gfp_speed = evoked_speed.data.std(axis=0)
+gfp_norm  = evoked_norm.data.std(axis=0)
+ 
+times = evoked_speed.times
+ 
+fig, ax = plt.subplots(figsize=(10, 4))
+ax.plot(times, gfp_norm  * 1e6, color='blue', linewidth=2, label='Normal')
+ax.plot(times, gfp_speed * 1e6, color='red',  linewidth=2, label='Speed')
+ax.axvline(0, color='k', linestyle='--', linewidth=0.8, label='Stimulus onset')
+ax.set_xlabel('Time (s)')
+ax.set_ylabel('GFP (µV)')
+ax.set_title('Global Field Power: Speed vs Normal (P2)')
+ax.legend()
+plt.tight_layout()
+plt.show()
